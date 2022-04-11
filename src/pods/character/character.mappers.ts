@@ -3,11 +3,16 @@ import * as viewModel from './character.vm';
 
 export const mapCharacterFromApiToVm = (
   character: apiModel.Character
-): viewModel.Character => ({
-  ...character,
-});
+): viewModel.Character => {
+  if (!character) return viewModel.createEmptyCharacter();
+  return {
+    ...character,
+  };
+};
 
-export const mapCharacterFromVmToApi = (character: viewModel.Character): apiModel.Character =>
+export const mapCharacterFromVmToApi = (
+  character: viewModel.Character
+): apiModel.Character =>
   (({
-    ...character
+    ...character,
   } as unknown) as apiModel.Character);
