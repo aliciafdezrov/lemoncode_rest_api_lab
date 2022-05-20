@@ -1,40 +1,59 @@
 import { Character, LocationApi } from './character.api-model';
-import { Lookup } from 'common/models';
-import { mockLocations, mockCharacterCollection } from './character.mock-data';
+import { gql } from 'graphql-request';
+import { graphQLClient } from '../../../core/api';
 
-const BASE_URL = 'https://rickandmortyapi.com/api';
+interface GetCharacterResponse {
+  character: Character
+}
 
-export const getCharacter = async (id: string): Promise<Character | null> => {
-  let characterApi: Character | null = null;
-  try {
-    let characterEndpoint = `${BASE_URL}/character/${id}`;
-    const response = await fetch(characterEndpoint);
-
-    if (response.ok) {
-      characterApi = await response.json();
-    }
-
-    return characterApi;
-  } catch (ex) {
-    console.log(ex);
-  }
+export const getCharacter = async (id: string): Promise<Character> => {
+  const query = gql`
+    query {
+      character(id: ${id}) {
+        id
+        name
+        status
+        species
+        type
+        gender
+        image
+        created
+        origin {
+          id
+          name
+        }
+        location {
+          id
+          name
+        }
+      }
+    }`;
+  const { character } = await graphQLClient.request<GetCharacterResponse>(
+    query
+  );
+  return character;
 };
 
-export const getLocations = async (): Promise<LocationApi[]> => {
-  let locationsApi: LocationApi[] = [];
-  try {
-    let locationEndpoint = `${BASE_URL}/location`;
-    const response = await fetch(locationEndpoint);
-
-    if (response.ok) {
-      const responseJson = await response.json();
-      locationsApi = responseJson.results;
-    }
-
-    return locationsApi;
-  } catch (ex) {
-    console.log(ex);
+interface GetLocationsResponse {
+  locations: {
+    results: LocationApi[];
   }
+}
+
+export const getLocations = async (): Promise<LocationApi[]> => {
+  const query = gql`
+    query {
+      locations {
+        results {
+          id
+          name
+        }
+      }
+    }`;
+  const { locations } = await graphQLClient.request<GetLocationsResponse>(
+    query
+  );
+  return locations.results;
 };
 
 export const saveCharacter = async (character: Character): Promise<boolean> => {

@@ -16,7 +16,6 @@ export interface Character {
   type: string;
   gender: string;
   image: string;
-  episode: string[];
   url: string;
   created: string;
   origin: Origin;

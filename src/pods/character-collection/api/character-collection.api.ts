@@ -1,28 +1,43 @@
+import { gql } from 'graphql-request';
 import { CharacterEntityApi } from './character-collection.api-model';
-import { mockCharacterCollection } from './character-collection.mock-data';
+import { graphQLClient } from '../../../core/api';
 
-let characterCollection = [...mockCharacterCollection];
-const BASE_URL = 'https://rickandmortyapi.com/api/';
-
-export const getCharacterCollection = async (): Promise<
-  CharacterEntityApi[]
-> => {
-  let characterListApi = [];
-  try {
-    let characterListEndpoint = `${BASE_URL}/character/`;
-    const response = await fetch(characterListEndpoint);
-
-    if (response.ok) {
-      const json = await response.json();
-      characterListApi = json.results;
+interface GetCharacterCollectionResponse {
+    characters: {
+      results: CharacterEntityApi[];
     }
-    return characterListApi;
-  } catch (ex) {
-    console.log(ex);
+}
+
+export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> => {
+  const query = gql`
+    query {
+  characters {
+    results {
+      id
+      name
+      status
+      species
+      type
+      gender
+      image
+      created
+      origin {
+        id
+        name
+      }
+      location {
+        id
+        name
+      }
+    }
   }
+}`;
+  const { characters } = await graphQLClient.request<GetCharacterCollectionResponse>(
+    query
+  );
+  return characters.results;
 };
 
 export const deleteCharacter = async (id: number): Promise<boolean> => {
-  characterCollection = characterCollection.filter((h) => h.id !== id);
   return true;
 };
