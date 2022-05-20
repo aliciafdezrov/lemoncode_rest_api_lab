@@ -36,11 +36,11 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
           />
           <TextFieldComponent
             name="gender"
-            label="gender"
+            label="Gender"
           />
           <TextFieldComponent
             name="status"
-            label="status"
+            label="Status"
           />
           <Button type="submit" variant="contained" color="primary">
             Save
