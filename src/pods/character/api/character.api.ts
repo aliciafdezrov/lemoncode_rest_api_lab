@@ -1,8 +1,8 @@
-import { Character } from './character.api-model';
+import { Character, LocationApi } from './character.api-model';
 import { Lookup } from 'common/models';
 import { mockLocations, mockCharacterCollection } from './character.mock-data';
 
-const BASE_URL = 'https://rickandmortyapi.com/api/';
+const BASE_URL = 'https://rickandmortyapi.com/api';
 
 export const getCharacter = async (id: string): Promise<Character | null> => {
   let characterApi: Character | null = null;
@@ -20,8 +20,21 @@ export const getCharacter = async (id: string): Promise<Character | null> => {
   }
 };
 
-export const getLocations = async (): Promise<Lookup[]> => {
-  return mockLocations;
+export const getLocations = async (): Promise<LocationApi[]> => {
+  let locationsApi: LocationApi[] = [];
+  try {
+    let locationEndpoint = `${BASE_URL}/location`;
+    const response = await fetch(locationEndpoint);
+
+    if (response.ok) {
+      const responseJson = await response.json();
+      locationsApi = responseJson.results;
+    }
+
+    return locationsApi;
+  } catch (ex) {
+    console.log(ex);
+  }
 };
 
 export const saveCharacter = async (character: Character): Promise<boolean> => {

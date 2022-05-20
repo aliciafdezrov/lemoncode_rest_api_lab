@@ -2,8 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import {
   TextFieldComponent,
-  SelectComponent,
-  RatingComponent,
+  SelectComponent
 } from 'common/components';
 import { Button } from '@material-ui/core';
 import { formValidation } from './character.validations';
@@ -30,13 +29,18 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
       {() => (
         <Form className={classes.root}>
           <TextFieldComponent name="name" label="Name" />
-          <SelectComponent name="origin" label="Origin" items={locations} />
+          <SelectComponent name="location.name" label="Location" items={locations} />
           <TextFieldComponent
             name="species"
             label="Species"
-            multiline={true}
-            rows={3}
-            rowsMax={5}
+          />
+          <TextFieldComponent
+            name="gender"
+            label="gender"
+          />
+          <TextFieldComponent
+            name="status"
+            label="status"
           />
           <Button type="submit" variant="contained" color="primary">
             Save
