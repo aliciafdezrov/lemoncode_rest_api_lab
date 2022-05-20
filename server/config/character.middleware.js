@@ -2,7 +2,7 @@ const characterMiddleware = (req, res, next) => {
   if (req.method === 'POST') {
     req.body = {
       ...req.body,
-      thumbNailUrl: '/thumbnails/new-character.jpg',
+      image: '/new-character.jpeg',
     };
   }
   next();

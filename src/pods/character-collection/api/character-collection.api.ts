@@ -1,21 +1,17 @@
 import { CharacterEntityApi } from './character-collection.api-model';
-import { mockCharacterCollection } from './character-collection.mock-data';
 
-let characterCollection = [...mockCharacterCollection];
-const BASE_URL = 'https://rickandmortyapi.com/api/';
+const BASE_URL = '/api';
 
-export const getCharacterCollection = async (): Promise<
-  CharacterEntityApi[]
-> => {
+export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> => {
   let characterListApi = [];
   try {
-    let characterListEndpoint = `${BASE_URL}/character/`;
+    let characterListEndpoint = `${BASE_URL}/characters/`;
     const response = await fetch(characterListEndpoint);
 
     if (response.ok) {
-      const json = await response.json();
-      characterListApi = json.results;
+      characterListApi = await response.json();
     }
+
     return characterListApi;
   } catch (ex) {
     console.log(ex);
@@ -23,6 +19,8 @@ export const getCharacterCollection = async (): Promise<
 };
 
 export const deleteCharacter = async (id: number): Promise<boolean> => {
-  characterCollection = characterCollection.filter((h) => h.id !== id);
-  return true;
+  let charactersEndpoint = `${BASE_URL}/characters/${id}`;
+  return fetch(charactersEndpoint, {
+    method: 'DELETE',
+  }).then(() => true).catch(() => false);
 };

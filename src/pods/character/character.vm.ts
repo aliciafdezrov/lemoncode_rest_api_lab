@@ -9,7 +9,7 @@ export interface Location {
 }
 
 export interface Character {
-  id: number;
+  id?: number;
   name: string;
   status: string;
   species: string;
@@ -24,7 +24,6 @@ export interface Character {
 }
 
 export const createEmptyCharacter = (): Character => ({
-  id: -1,
   name: "",
   status: "",
   species: "",

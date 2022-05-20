@@ -704,7 +704,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      "image": "1.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/1",
         "https://rickandmortyapi.com/api/episode/2",
@@ -776,7 +776,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+      "image": "2.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/1",
         "https://rickandmortyapi.com/api/episode/2",
@@ -848,7 +848,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+      "image": "3.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/6",
         "https://rickandmortyapi.com/api/episode/7",
@@ -911,7 +911,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/4.jpeg",
+      "image": "4.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/6",
         "https://rickandmortyapi.com/api/episode/7",
@@ -974,7 +974,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
+      "image": "5.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/6",
         "https://rickandmortyapi.com/api/episode/7",
@@ -1034,7 +1034,7 @@
         "name": "Abadango",
         "url": "https://rickandmortyapi.com/api/location/2"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/6.jpeg",
+      "image": "6.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/27"
       ],
@@ -1056,7 +1056,7 @@
         "name": "Testicle Monster Dimension",
         "url": "https://rickandmortyapi.com/api/location/21"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/7.jpeg",
+      "image": "7.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/11"
@@ -1079,7 +1079,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/8.jpeg",
+      "image": "8.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/28"
       ],
@@ -1101,7 +1101,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/9.jpeg",
+      "image": "9.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/24"
       ],
@@ -1123,7 +1123,7 @@
         "name": "Worldender's lair",
         "url": "https://rickandmortyapi.com/api/location/4"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/10.jpeg",
+      "image": "10.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/25"
       ],
@@ -1145,7 +1145,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/11.jpeg",
+      "image": "11.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/12"
       ],
@@ -1167,7 +1167,7 @@
         "name": "Anatomy Park",
         "url": "https://rickandmortyapi.com/api/location/5"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/12.jpeg",
+      "image": "12.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/3"
       ],
@@ -1189,7 +1189,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/13.jpeg",
+      "image": "13.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/31"
       ],
@@ -1211,7 +1211,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/14.jpeg",
+      "image": "14.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10"
       ],
@@ -1233,7 +1233,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg",
+      "image": "15.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10"
       ],
@@ -1255,7 +1255,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/16.jpeg",
+      "image": "16.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/15"
       ],
@@ -1277,7 +1277,7 @@
         "name": "Anatomy Park",
         "url": "https://rickandmortyapi.com/api/location/5"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/17.jpeg",
+      "image": "17.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/3"
       ],
@@ -1299,7 +1299,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/18.jpeg",
+      "image": "18.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/28"
@@ -1322,34 +1322,12 @@
         "name": "unknown",
         "url": ""
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/19.jpeg",
+      "image": "19.jpeg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10"
       ],
       "url": "https://rickandmortyapi.com/api/character/19",
       "created": "2017-11-04T22:28:13.756Z"
-    },
-    {
-      "id": 20,
-      "name": "Ants in my Eyes Johnson",
-      "status": "unknown",
-      "species": "Human",
-      "type": "Human with ants in his eyes",
-      "gender": "Male",
-      "origin": {
-        "name": "unknown",
-        "url": ""
-      },
-      "location": {
-        "name": "Interdimensional Cable",
-        "url": "https://rickandmortyapi.com/api/location/6"
-      },
-      "image": "https://rickandmortyapi.com/api/character/avatar/20.jpeg",
-      "episode": [
-        "https://rickandmortyapi.com/api/episode/8"
-      ],
-      "url": "https://rickandmortyapi.com/api/character/20",
-      "created": "2017-11-04T22:34:53.659Z"
     }
   ]
 }
