@@ -17,18 +17,8 @@ export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> =>
       name
       status
       species
-      type
       gender
       image
-      created
-      origin {
-        id
-        name
-      }
-      location {
-        id
-        name
-      }
     }
   }
 }`;

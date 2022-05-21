@@ -13,12 +13,8 @@ export interface Character {
   name: string;
   status: string;
   species: string;
-  type: string;
   gender: string;
   image: string;
-  url: string;
-  created: string;
-  origin: Origin;
   location: Location;
 }
 
@@ -27,12 +23,7 @@ export const createEmptyCharacter = (): Character => ({
   name: "",
   status: "",
   species: "",
-  type: "",
   gender: "",
   image: "",
-  episode: [],
-  url: "",
-  created: "",
-  origin: {name: "", url: ""},
   location: {name: "", url: ""},
 });

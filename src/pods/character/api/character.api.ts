@@ -14,14 +14,8 @@ export const getCharacter = async (id: string): Promise<Character> => {
         name
         status
         species
-        type
         gender
         image
-        created
-        origin {
-          id
-          name
-        }
         location {
           id
           name
