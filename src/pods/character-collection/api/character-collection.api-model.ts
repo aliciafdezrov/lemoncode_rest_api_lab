@@ -15,3 +15,11 @@ export interface CharactersResponseApi {
   results: CharacterEntityApi[];
   info: InfoEntityApi;
 }
+
+export interface FilterCharacter {
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+}

@@ -4,41 +4,31 @@ import * as classes from './filter-form.styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { MenuItem, Select } from '@material-ui/core';
-
-export interface FilterCharacter {
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-}
-
-const initialFilter: FilterCharacter = {
-  name: "",
-  status: "",
-  species: "",
-  type: "",
-  gender: "",
-}
+import {
+  CharacterCollectionContext,
+  initialFilter,
+} from '../../../../core/character-collection/character-collection.context';
+import { FilterCharacter } from '../../api';
 
 interface Props {
-  onSearch: (query: FilterCharacter) => void;
+  onSearch: (filter: FilterCharacter) => void;
 }
 
 export const FilterForm: React.FC<Props> = (props) => {
   const {onSearch} = props;
-  const [query, setQuery] = React.useState<FilterCharacter>({ ...initialFilter });
+  const {characterFilter, setCharacterFilter} = React.useContext(CharacterCollectionContext);
 
   const handleClickSearch = () => {
-    onSearch(query);
+    onSearch(characterFilter);
   }
 
   const handleClickClear = () => {
-    setQuery({...initialFilter})
+    setCharacterFilter({...initialFilter});
+    onSearch({...initialFilter});
   }
 
-  const handleOnChangeQuery = (key: keyof FilterCharacter) => (event: React.ChangeEvent<HTMLInputElement>) => setQuery({
-    ...query,
+  const handleOnChangeQuery = (key: keyof FilterCharacter) => (event: React.ChangeEvent<HTMLInputElement>) => setCharacterFilter({
+    ...characterFilter,
     [key]: event.target.value,
   });
 
@@ -46,13 +36,13 @@ export const FilterForm: React.FC<Props> = (props) => {
     <div className={classes.container}>
       <div>
         <Typography variant="h6">Name</Typography>
-        <TextField value={query.name} onChange={handleOnChangeQuery("name")}/>
+        <TextField value={characterFilter.name} onChange={handleOnChangeQuery("name")}/>
       </div>
       <div>
         <Typography variant="h6">Status</Typography>
         <Select
           className={classes.select}
-          value={query.status}
+          value={characterFilter.status}
           onChange={handleOnChangeQuery("status")}
         >
           <MenuItem value="">None</MenuItem>
@@ -63,13 +53,13 @@ export const FilterForm: React.FC<Props> = (props) => {
       </div>
       <div>
         <Typography variant="h6">Type</Typography>
-        <TextField value={query.type} onChange={handleOnChangeQuery("type")}/>
+        <TextField value={characterFilter.type} onChange={handleOnChangeQuery("type")}/>
       </div>
       <div>
         <Typography variant="h6">Gender</Typography>
         <Select
           className={classes.select}
-          value={query.gender}
+          value={characterFilter.gender}
           onChange={handleOnChangeQuery("gender")}
         >
           <MenuItem value="">None</MenuItem>
@@ -81,7 +71,7 @@ export const FilterForm: React.FC<Props> = (props) => {
       </div>
       <div>
         <Typography variant="h6">Species</Typography>
-        <TextField value={query.species} onChange={handleOnChangeQuery("species")}/>
+        <TextField value={characterFilter.species} onChange={handleOnChangeQuery("species")}/>
       </div>
 
       <div>

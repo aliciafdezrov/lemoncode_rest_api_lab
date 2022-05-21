@@ -5,7 +5,7 @@ import * as classes from './character-collection.styles';
 import { CharacterCollectionVm } from './character-collection.vm';
 import { CharacterCard } from './components/character-card.component';
 import { Filter } from './components/search/filter.component';
-import { FilterCharacter } from './components/search/filter-form.component';
+import { FilterCharacter } from './api';
 
 interface Props {
   characterCollection: CharacterCollectionVm;

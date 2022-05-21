@@ -1,8 +1,9 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
-import { FilterForm, FilterCharacter } from './filter-form.component';
+import { FilterForm } from './filter-form.component';
 import * as classes from './filter.styles';
+import { FilterCharacter } from '../../api';
 
 interface Props {
   onSearch: (query: FilterCharacter) => void;

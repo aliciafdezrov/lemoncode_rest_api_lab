@@ -1,13 +1,16 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import { linkRoutes } from 'core/router';
-import { deleteCharacter } from './api';
+import { deleteCharacter, FilterCharacter } from './api';
 import { CharacterCollectionComponent } from './character-collection.component';
 import { useCharacterCollection } from './character-collection.hook';
-import { FilterCharacter } from './components/search/filter-form.component';
+import {
+  CharacterCollectionContext
+} from '../../core/character-collection/character-collection.context';
 
 export const CharacterCollectionContainer = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
+  const {characterFilter} = React.useContext(CharacterCollectionContext);
   const history = useHistory();
 
   React.useEffect(() => {
@@ -24,7 +27,7 @@ export const CharacterCollectionContainer = () => {
 
   const handleDelete = async (id: number) => {
     await deleteCharacter(Number(id));
-    loadCharacterCollection(characterCollection.page);
+    loadCharacterCollection(characterCollection.page, characterFilter);
   };
 
   const handleSearch = (filter: FilterCharacter) => {
@@ -32,17 +35,17 @@ export const CharacterCollectionContainer = () => {
   };
 
   const handlePagination = (page: number) => {
-    loadCharacterCollection(page);
+    loadCharacterCollection(page, characterFilter);
   };
 
   return (
-    <CharacterCollectionComponent
-      characterCollection={characterCollection}
-      onCreateCharacter={handleCreateCharacter}
-      onEdit={handleEdit}
-      onDelete={handleDelete}
-      onSearch={handleSearch}
-      onPaginate={handlePagination}
-    />
+      <CharacterCollectionComponent
+        characterCollection={characterCollection}
+        onCreateCharacter={handleCreateCharacter}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+        onSearch={handleSearch}
+        onPaginate={handlePagination}
+      />
   );
 };
