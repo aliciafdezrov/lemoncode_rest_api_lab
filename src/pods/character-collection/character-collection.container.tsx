@@ -4,6 +4,7 @@ import { linkRoutes } from 'core/router';
 import { deleteCharacter } from './api';
 import { CharacterCollectionComponent } from './character-collection.component';
 import { useCharacterCollection } from './character-collection.hook';
+import { FilterCharacter } from './components/search/filter-form.component';
 
 export const CharacterCollectionContainer = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
@@ -26,12 +27,17 @@ export const CharacterCollectionContainer = () => {
     loadCharacterCollection();
   };
 
+  const handleSearch = (filter: FilterCharacter) => {
+    loadCharacterCollection(filter);
+  }
+
   return (
     <CharacterCollectionComponent
       characterCollection={characterCollection}
       onCreateCharacter={handleCreateCharacter}
       onEdit={handleEdit}
       onDelete={handleDelete}
+      onSearch={handleSearch}
     />
   );
 };
