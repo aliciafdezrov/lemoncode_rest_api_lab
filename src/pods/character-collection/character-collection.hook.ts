@@ -2,17 +2,20 @@ import * as React from 'react';
 import { getCharacterCollection } from './api';
 import { mapFromApiToVm } from './character-collection.mapper';
 import { mapToCollection } from 'common/mappers';
-import { CharacterEntityVm } from './character-collection.vm';
+import { CharacterCollectionVm, createEmptyCharacterCollection } from './character-collection.vm';
 import { FilterCharacter } from './components/search/filter-form.component';
 
 export const useCharacterCollection = () => {
-  const [characterCollection, setCharacterCollection] = React.useState<CharacterEntityVm[]>(
-    []
+  const [characterCollection, setCharacterCollection] = React.useState<CharacterCollectionVm>(
+    createEmptyCharacterCollection(),
   );
 
-  const loadCharacterCollection = (filter?: FilterCharacter) => {
-    getCharacterCollection(filter).then((result) =>
-      setCharacterCollection(mapToCollection(result, mapFromApiToVm))
+  const loadCharacterCollection = (page: number, filter?: FilterCharacter) => {
+    getCharacterCollection(page, filter).then((response) => setCharacterCollection({
+        pages: response.info.pages,
+        characters: mapToCollection(response.results, mapFromApiToVm),
+        page: page,
+      }),
     );
   };
 

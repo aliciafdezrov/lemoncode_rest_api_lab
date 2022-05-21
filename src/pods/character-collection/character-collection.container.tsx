@@ -11,7 +11,7 @@ export const CharacterCollectionContainer = () => {
   const history = useHistory();
 
   React.useEffect(() => {
-    loadCharacterCollection();
+    loadCharacterCollection(characterCollection.page);
   }, []);
 
   const handleCreateCharacter = () => {
@@ -24,12 +24,16 @@ export const CharacterCollectionContainer = () => {
 
   const handleDelete = async (id: number) => {
     await deleteCharacter(Number(id));
-    loadCharacterCollection();
+    loadCharacterCollection(characterCollection.page);
   };
 
   const handleSearch = (filter: FilterCharacter) => {
-    loadCharacterCollection(filter);
-  }
+    loadCharacterCollection(1, filter);
+  };
+
+  const handlePagination = (page: number) => {
+    loadCharacterCollection(page);
+  };
 
   return (
     <CharacterCollectionComponent
@@ -38,6 +42,7 @@ export const CharacterCollectionContainer = () => {
       onEdit={handleEdit}
       onDelete={handleDelete}
       onSearch={handleSearch}
+      onPaginate={handlePagination}
     />
   );
 };

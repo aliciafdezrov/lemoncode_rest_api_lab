@@ -1,41 +1,54 @@
 import * as React from 'react';
 import Button from '@material-ui/core/Button';
+import Pagination from '@material-ui/lab/Pagination';
 import * as classes from './character-collection.styles';
-import { CharacterEntityVm } from './character-collection.vm';
+import { CharacterCollectionVm } from './character-collection.vm';
 import { CharacterCard } from './components/character-card.component';
 import { Filter } from './components/search/filter.component';
 import { FilterCharacter } from './components/search/filter-form.component';
 
 interface Props {
-  characterCollection: CharacterEntityVm[];
+  characterCollection: CharacterCollectionVm;
   onCreateCharacter: () => void;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onSearch: (filter: FilterCharacter) => void;
+  onPaginate: (page: number) => void;
 }
 
 export const CharacterCollectionComponent: React.FunctionComponent<Props> = (
-  props
+  props,
 ) => {
-  const { characterCollection, onCreateCharacter, onEdit, onDelete, onSearch } = props;
+  const { characterCollection, onCreateCharacter, onEdit, onDelete, onSearch, onPaginate } = props;
+
+  const handleChangePagination = (event: React.ChangeEvent<unknown>, value: number) => {
+    onPaginate(value);
+  };
 
   return (
     <div className={classes.root}>
-      <div className={classes.header}>
-        <Button variant="contained" color="primary" onClick={onCreateCharacter}>
+      <header className={classes.header}>
+        <Button variant='contained' color='primary' onClick={onCreateCharacter}>
           Add character
         </Button>
 
-        <Filter onSearch={onSearch}/>
-      </div>
+        <Filter onSearch={onSearch} />
+      </header>
 
-      <ul className={classes.list}>
-        {characterCollection.map((character) => (
-          <li key={character.id}>
-            <CharacterCard character={character} onEdit={onEdit} onDelete={onDelete} />
-          </li>
-        ))}
-      </ul>
+      <main>
+        <ul className={classes.list}>
+          {characterCollection.characters.map((character) => (
+            <li key={character.id}>
+              <CharacterCard character={character} onEdit={onEdit} onDelete={onDelete} />
+            </li>
+          ))}
+        </ul>
+      </main>
+
+      <footer className={classes.footer}>
+        <Pagination count={characterCollection.pages} page={characterCollection.page} variant='outlined'
+                    onChange={handleChangePagination} color="secondary"/>
+      </footer>
     </div>
   );
 };

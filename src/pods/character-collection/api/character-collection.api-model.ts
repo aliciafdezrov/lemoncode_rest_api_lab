@@ -1,13 +1,3 @@
-export interface Origin {
-  name: string;
-  url: string;
-}
-
-export interface Location {
-  name: string;
-  url: string;
-}
-
 export interface CharacterEntityApi {
   id: number;
   name: string;
@@ -15,4 +5,13 @@ export interface CharacterEntityApi {
   species: string;
   gender: string;
   image: string;
+}
+
+export interface InfoEntityApi {
+  pages: number;
+}
+
+export interface CharactersResponseApi {
+  results: CharacterEntityApi[];
+  info: InfoEntityApi;
 }

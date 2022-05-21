@@ -1,18 +1,19 @@
 import { gql } from 'graphql-request';
-import { CharacterEntityApi } from './character-collection.api-model';
+import { CharactersResponseApi } from './character-collection.api-model';
 import { FilterCharacter } from '../components/search/filter-form.component';
 import { graphQLClient } from '../../../core/api';
 
 interface GetCharacterCollectionResponse {
-  characters: {
-    results: CharacterEntityApi[];
-  };
+  characters: CharactersResponseApi;
 }
 
-export const getCharacterCollection = async (filter?: FilterCharacter): Promise<CharacterEntityApi[]> => {
+export const getCharacterCollection = async (page: number, filter?: FilterCharacter): Promise<CharactersResponseApi> => {
   const query = gql`
-    query ($name: String, $type: String, $species: String, $status: String, $gender: String){
-  characters (filter: {name: $name, type: $type, species: $species, status: $status, gender: $gender}) {
+    query ($page: Int!, $name: String, $type: String, $species: String, $status: String, $gender: String){
+  characters (page: $page, filter: {name: $name, type: $type, species: $species, status: $status, gender: $gender}) {
+    info {
+      pages
+    }
     results {
       id
       name
@@ -25,8 +26,11 @@ export const getCharacterCollection = async (filter?: FilterCharacter): Promise<
 }`;
   let variables = {};
   if (filter) variables = { ...filter };
-  const { characters } = await graphQLClient.request<GetCharacterCollectionResponse>(query, { ...variables });
-  return characters.results;
+  const { characters } = await graphQLClient.request<GetCharacterCollectionResponse>(query, {
+    ...variables,
+    page: page,
+  });
+  return characters;
 };
 
 export const deleteCharacter = async (id: number): Promise<boolean> => {

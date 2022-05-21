@@ -29,3 +29,8 @@ export const header = css`
   display: flex;
   justify-content: space-between;
 `;
+
+export const footer = css`
+  display: flex;
+  justify-content: center;
+`;
