@@ -1,6 +1,4 @@
 import { Character, LocationApi } from './character.api-model';
-import { Lookup } from 'common/models';
-import { mockLocations, mockCharacterCollection } from './character.mock-data';
 
 const BASE_URL = '/api';
 
